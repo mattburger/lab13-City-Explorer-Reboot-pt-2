@@ -8,7 +8,7 @@ class SearchResults extends React.Component {
   render(){
     return(
       <>
-        <Results />
+        <Results location = {this.state}/>
       </>
     );
   }
