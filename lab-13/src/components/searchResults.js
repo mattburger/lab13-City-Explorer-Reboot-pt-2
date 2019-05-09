@@ -1,9 +1,12 @@
 import React from 'react';
 import Results from './results.js'
+import superagent from 'superagent'
 
 class SearchResults extends React.Component {
-  constructor(props) {
-    super(props);
+  getLocation(url){
+    let url = 'https://https://city-explorer-backend.herokuapp.com/location';
+    fetch(url)
+    .then
   }
   render(){
     return(

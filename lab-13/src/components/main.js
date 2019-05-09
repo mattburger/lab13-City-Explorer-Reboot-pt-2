@@ -8,7 +8,7 @@ class Main extends React.Component {
     return(
       <>
         <Map />
-        <SearchForm />
+        <SearchForm locationHandler = {this.props.locationHandler}/>
         <SearchResults />
       </>
     );

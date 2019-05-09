@@ -10,7 +10,7 @@ class App extends React.Component{
     }
   }
 
-  handleForm = (location) => {
+  handleLocation = (location) => {
     this.setState({ location });
   }
 
@@ -18,7 +18,7 @@ class App extends React.Component{
     return (
       <>
         <Header />
-        <Main handler = {this.handleForm} />
+        <Main locationHandler = {this.handleLocation} />
       </> 
     );
   }
