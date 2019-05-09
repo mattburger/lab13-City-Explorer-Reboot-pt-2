@@ -8,21 +8,16 @@ class SearchForm extends React.Component {
     }
   }
 
-  handleInput = e => {
-    let location = e.target.value;
-    return location;
-  }
   handleSearch = e => {
     e.prevenDefault();
-    let loc = this.handleInput(e);
-    this.props.locHandler(loc);
-
+    let location = e.target.value;
+    this.setState({location});
   };
   render(){
     return(
       <form>
-        <input onChange={this.handleInput}/>
-        <button onSubmit={this.handleSearch}>Search</button>
+        <input />
+        <button onClick={this.handleSearch}>Search</button>
       </form>
     );
   }
