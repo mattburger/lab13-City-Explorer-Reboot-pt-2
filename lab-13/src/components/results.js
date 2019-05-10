@@ -1,13 +1,12 @@
 import React from 'react';
+import superagent from 'superagent';
 
 class Results extends React.Component {
-  getLocationData(location){
-    let data = await superagent.get('')
-  }
+
   render() {
     return(
       <>
-        <DarkSky />
+        <DarkSky locObj = {this.props.locObj} />
         <Eventbrite />
         <MovieDB />
         <Yelp />
@@ -17,9 +16,28 @@ class Results extends React.Component {
   }
 }
 class DarkSky extends React.Component {
-  constructor(props) {
+  constructor(props){
     super(props);
+    this.state = {}
   }
+
+  componentDidMount(){
+    this.getDarkData(this.props.locObj);
+  }
+  componentDidUpdate(prevProps){
+    if(this.props.locObj !== prevProps.locObj){
+      this.getDarkData(this.props.locObj);
+    }
+  }
+
+  getDarkData = async geoData => {
+    let dark_url = 'https://city-explorer-backend.herokuapp.com/weather';
+    let dark_data = await superagent.get(dark_url).query(`data: ${geoData}`);
+    this.setState({darkData: dark_data});
+    console.log('darksky data after get',dark_data);
+
+  }
+
   render(){
     return(
       <section>
@@ -38,6 +56,7 @@ class Eventbrite extends React.Component {
   constructor(props){
     super(props);
   }
+
   render(){
     return(
       <section>
