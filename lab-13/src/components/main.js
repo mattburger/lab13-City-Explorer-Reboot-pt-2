@@ -5,11 +5,12 @@ import SearchResults from './searchResults';
 
 class Main extends React.Component {
   render() {
+    // console.log(this.props.locObj)
     return(
       <>
-        <Map />
-        <SearchForm locationHandler = {this.props.locationHandler}/>
-        <SearchResults />
+        <Map daK = {process.env.REACT_APP_GEOCODE_API_KEY} locObj = {this.props.locObj}/>
+        <SearchForm searchHandler = {this.props.searchHandler} locHandler = {this.props.locHandler} locObj = {this.props.locObj} searchVal = {this.props.searchVal}/>
+        <SearchResults locObj = {this.props.locObj} searchVal = {this.props.searchValue}/>
       </>
     );
   }

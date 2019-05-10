@@ -1,29 +1,40 @@
 import React from 'react';
+import superagent from 'superagent'
+// import SearchResults from './searchResults';
 
 class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: 'nothing',
+      // searchValue: this.props.searchVal,
+      geoObject: this.props.locObj
     }
   }
-
   handleInput = e =>{
-    let location = e.target.value;
-    this.props.locationHandler(location);
+    this.props.searchHandler(e.target.value);
   }
-  handleSearch = e => {
-    e.prevenDefault();
-    let location = this.state.location;
-    this.setState({location});
-
+  handleClick = async e => {
+    e.preventDefault();
+    let geo_url = 'https://city-explorer-backend.herokuapp.com/location';
+    let searchQuery = this.props.searchVal;
+    let geo_data = await superagent.get(geo_url).query({data: searchQuery});
+    let gd = geo_data.body;
+    console.log('geo_data after GET',gd);
+    this.props.locHandler(gd);
+    // DarkSky.getDarkData(this.props.locObj);
   };
+
+
   render(){
+
+    // console.log('locObj',this.props.locObj)
     return(
-      <form>
-        <input onChange={this.handleInput}/>
-        <button onClick={this.handleSearch}>Search</button>
-      </form>
+      <>
+        <form onSubmit={this.handleClick}>
+          <input onChange={this.handleInput}/>
+          <button>Explore</button>
+        </form>
+      </>
     );
   }
 }
