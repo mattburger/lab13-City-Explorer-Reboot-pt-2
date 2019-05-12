@@ -8,13 +8,14 @@ class App extends React.Component {
     this.state = {
       searchValue: '',
       geoObject: {
-        "search_query": "Lynnwood",
-        "formatted_address": "Lynnwood, WA, USA",
-        "latitude": 47.8209301,
-        "longitude": -122.3151314
+        search_query: "Lynnwood",
+        formatted_address: "Lynnwood, WA, USA",
+        latitude: 47.8209301,
+        longitude: -122.3151314
       }
     }
   }
+  
   handleSearch = (value) => {
     this.setState({ 
       searchValue: value 
