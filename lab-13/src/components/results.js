@@ -75,7 +75,7 @@ class DarkSky extends React.Component {
     return(
       <section>
         <h3>Forecast</h3>
-        <ul>{this.props.darkRenderedItems}</ul>
+        <ul className='results'>{this.props.darkRenderedItems}</ul>
       </section>
 
     );
@@ -108,7 +108,7 @@ class Eventbrite extends React.Component {
     return(
       <section>
         <h3>Eventbrite</h3>
-        {/* { <ul> {this.props.eventRenderedItems} </ul> } */}
+        {/* { <ul className='results'> {this.props.eventRenderedItems} </ul> } */}
       </section>
 
     );
@@ -141,7 +141,7 @@ class MovieDB extends React.Component {
     return(
       <section>
         <h3>MovieDB</h3>
-        { <ul> {this.props.movieRenderedItems} </ul> }
+        { <ul className='results'> {this.props.movieRenderedItems} </ul> }
       </section>
 
     );
@@ -172,7 +172,7 @@ class Yelp extends React.Component {
     return(
       <section>
         <h3>Yelp</h3>
-        <ul>{this.props.yelpRenderedItems}</ul>
+        <ul className='results'>{this.props.yelpRenderedItems}</ul>
       </section>
 
     );
@@ -202,7 +202,7 @@ class Trails extends React.Component {
     return(
       <section>
         <h3>Trails</h3>
-        <ul>{this.props.trailsRenderedItems}</ul>
+        <ul className='results'>{this.props.trailsRenderedItems}</ul>
       </section>
 
     );

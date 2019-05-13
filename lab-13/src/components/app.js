@@ -35,7 +35,6 @@ class App extends React.Component {
     return (
       <>
         <Header />
-        <h1>{this.state.geoObject.formatted_address}</h1>
         <Main searchHandler = {this.handleSearch} locHandler = {this.handleLocData} locObj = {this.state.geoObject} searchVal = {this.state.searchValue}/>
       </> 
     );
