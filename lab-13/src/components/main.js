@@ -9,7 +9,12 @@ class Main extends React.Component {
     return(
       <>
         <Map daK = {process.env.REACT_APP_GEOCODE_API_KEY} locObj = {this.props.locObj}/>
-        <SearchForm searchHandler = {this.props.searchHandler} locHandler = {this.props.locHandler} locObj = {this.props.locObj} searchVal = {this.props.searchVal}/>
+        <SearchForm 
+          searchHandler = {this.props.searchHandler} 
+          locHandler = {this.props.locHandler} 
+          locObj = {this.props.locObj} 
+          searchVal = {this.props.searchVal}
+        />
         <SearchResults locObj = {this.props.locObj} searchVal = {this.props.searchValue}/>
       </>
     );
